@@ -1,0 +1,29 @@
+body{
+  background-image:url(playa.gif);
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+div{
+  border: solid blue;
+  margin: auto;
+  text-align: center;
+  background-color: #A9E2F3;
+  width: 40%;
+  margin-top: 10%;
+}
+
+h1{
+  font-family: fantasy;
+  font-size: 3em;
+}
+
+button {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 1em 2em;
+    text-align: center;
+    font-size: 0.8em;
+    cursor: pointer;
+}
