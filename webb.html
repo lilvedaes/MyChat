@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html  lang="es">
+    <head>
+    	<title> MyChat </title>
+
+    	<script>
+function usrpas(){
+        if (document.form1.txt.value=="Mariella" && document.form1.num.value=="Interbank123"){window.location="Cuadro.html"}
+        else {alert("Error en Usuario o Contraseña. Intenta de nuevo.")}
+}
+        document.oncontextmenu=new Function("return false");
+        </script>
+
+<!--
+<form name=" ">
+<input type="text" name="txt"> Usuario (admin)<br>
+<input type="password" name="num"> Contraseña (1234)<br>
+<input type="button" value="ir a.." onclick="usrpas()">
+</form>
+!-->
+    	<meta charset ="UTF-8">
+    	<meta name="viewport" content ="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    	<link rel="stylesheet" href="estilos.css">
+    </head>
+    <body>
+
+    	<form name ="form1">
+    		<h2>MyChat</h2>
+    		
+    		<input type="text" placeholder="&#9095; Usuario" name="txt">
+    		<input type="password"  placeholder="&#9919; Contraseña" name="num"> 
+    		<input type="buttom" value ="Ingresar" onclick="usrpas()">
+    	
+    	</form>	
+    </body>
+    </html>	
