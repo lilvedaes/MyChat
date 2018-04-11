@@ -1,0 +1,44 @@
+body,html {
+	height:100%;
+	margin:0;
+}
+
+
+legend {
+	font-size: 30px;
+	text-shadow: 2px 2px black;
+	text-align:center; 
+}
+
+h1 {
+	color: white;
+	text-shadow: 2px 2px black;
+	font-family: courier new;
+	font-size:50px;
+}
+
+form {
+	color:white;
+	text-shadow: 2px 2px black;
+	font-size: 16px;
+}
+
+a {
+	color:white;
+	text-decoration: none;
+}
+
+#text {
+	float:right;
+	clear:both;
+	margin-right:30px;
+}
+
+.bg {
+	background-image:url("http://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/441870/72cd26e14b7fcba028206a06f10548c0d5174cfc.jpg");
+	height:100%;
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size: cover;
+}
+
