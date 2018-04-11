@@ -1,0 +1,77 @@
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+#name{
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+.form-control{
+  border-right:0;
+  box-shadow:0 0 0;
+  border-color:#ccc;
+}
+
+.input-group-addon{
+  background: white !important;
+}
+
+.myMessage{
+  border: 2px solid #dedede;
+  border-radius: 10px;
+  border-color: #ccc;
+  background-color:  #1E90FF;
+  padding: 10px;
+  height: 70px;
+}
+
+.messageWrapper{
+  border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.wrapChat{
+  border: 2px solid #dedede;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    height: 700px;
+}
+
+.messageWrapper img{
+    float: left;
+    max-width: 40px;
+    max-height: 40px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.myMessage img.right{
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+  max-width: 40px;
+  max-height: 40px;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.time-right{
+  float: right;
+  color: #ffffff;
+  margin: 1px;
+}
+
+.time_left{
+  float: left;
+  color: #999;
+}
