@@ -1,0 +1,84 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="/la_ruta_de_tu_dominio/jquery/jquery-3.1.1.min.js"></script>
+
+<link rel="script" type="text/html" href="after.html">
+<style>
+button[type=submit] {
+background-color: #419DDF;
+border:#419DDF;
+color: white;
+padding: 14px 20px;
+margin-left: 350px;
+border-radius: 4px;
+cursor:pointer;
+}
+
+input[type=password] {
+width:450px;
+padding:12px;
+border-radius:4px;
+border: 2px solid #D0D0D0;
+margin:20px;
+}
+input[type=text] {
+width:450px;
+padding:12px;
+border-radius:4px;
+border: 2px solid #D0D0D0;
+margin-top:20px;
+}
+
+form{
+margin: 70px auto;
+width:600px;
+height: 350px;
+border:7px solid #D0D0D0;
+
+}
+</style>
+<script>
+function entrar(){
+
+var uname = document.login.uname.value;
+var pwd = document.login.pwd.value;
+
+if (uname=="admin" && pwd=="admin"){
+	
+	return true
+}
+else if (uname!="admin" || pwd!="admin") {
+    alert("Usuario o contraseña incorrecta");
+    return false
+}
+}
+
+
+</script>
+</head>
+<body>
+	<div>
+	
+		<ul style="text-align:center; list-style-type:none;">
+
+		<form name= "login" onSubmit="return entrar()" action="after.html">
+
+		<ul style="text-align:center; list-style-type:none;">
+
+	    	<li><h1 style="color:#D0D0D0;">MyCHAT</h1></li>
+	    	<div><input type = "text" name="uname" placeholder="Username" value=""></div>
+	    	<div style="padding: 0px"><input type = "password" name="pwd" placeholder="Text input" value=""></div>
+			<button type="submit"><a style="text-decoration:none;">LOG IN</a></button>
+			</ul>
+		</form>
+		</ul>
+	
+	</div>
+
+</body>
+
+</html>
