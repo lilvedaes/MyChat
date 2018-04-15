@@ -4,7 +4,7 @@
   <title>Login</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link href="signin.css" rel="stylesheet">
+  <link href="../static/signin.css" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" rel="stylesheet">
 </head>
 <body>
@@ -18,7 +18,7 @@
   }
   function verify(){
     if (document.form1.txt.value=="hello@utec.edu.pe" && document.form1.num.value=="world"){
-      window.location="chats.html";
+      window.location="/chats";
     }
     else {
       showToast();
@@ -27,7 +27,7 @@
   document.oncontextmenu=new Function("return false");
   </script>
     <form class="form-signin" name="form1">
-      <img class="mb-4" src="download.png" width="72" height="72">
+      <img class="mb-4" src="../static/download.jpeg" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Por favor ingrese sus datos</h1>
       <label for="inputEmail" class="sr-only">Correo</label>
       <input type="email" name="txt" id="inputEmail" class="form-control" placeholder="Correo" required autofocus>
