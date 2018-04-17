@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+		<meta charset="UTF-8">
+		<title>EL BATICHAT</title>
+		<link rel="stylesheet" type="text/css" href="estilo.css">
+		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700">
+
+</head>
+<body>
+	<div class="container">
+		<div class="form">
+			<div class="text-center">
+				<p class="titulo">EL BATICHAT</p>
+			</div>
+			<SCRIPT  language=JavaScript> 
+				function go()
+				{
+				if (document.getElementById("contraseña").value=="CONTRASEÑA" && document.getElementById("usuario").value=="USUARIO")
+				{ 
+        			document.getElementById("myform").submit(); 
+        		}
+    			else
+    			{ 
+         		alert("Datos erroneos, reingrese datos."); 
+    			} 
+				} 
+			</SCRIPT> 
+			<form id=myform action="chat.html">
+				<input id="usuario" type="text" class="input" placeholder="Usuario">
+				<input id="contraseña" type="password" class="input" placeholder="Contraseña">
+				<input onclick="go()" type="button" value="Iniciar" class="btn" >
+			</form>
+
+		</div>
+
+		<div class="text-center">
+			<p class="copy">
+				Absolutamente todos los derechos de esta preciosidad estan reclamados por Sir Lord Batman Sensei Senpai Sama :)
+			</p>
+	</div>
+</body>
+</html>
