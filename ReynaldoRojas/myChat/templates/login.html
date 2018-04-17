@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="../static/signin.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" rel="stylesheet">
+</head>
+<body>
+  <script>
+  function showToast(){
+    var toast = document.getElementById("Toast");
+    toast.classname="show";
+    setTimeout(function(){
+      toast.classname = toast.classname.replace("show", "");
+      }, 2000);
+  }
+  function verify(){
+    if (document.form1.txt.value=="hello@utec.edu.pe" && document.form1.num.value=="world"){
+      window.location="/chats";
+    }
+    else {
+      showToast();
+    }
+  }
+  document.oncontextmenu=new Function("return false");
+  </script>
+    <form class="form-signin" name="form1">
+      <img class="mb-4" src="../static/download.jpeg" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Por favor ingrese sus datos</h1>
+      <label for="inputEmail" class="sr-only">Correo</label>
+      <input type="email" name="txt" id="inputEmail" class="form-control" placeholder="Correo" required autofocus>
+      <label for="inputPassword" class="sr-only">Contraseña</label>
+      <input type="password" name="num" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="button" onclick="verify()">Sign in</button>
+      <div id="Toast">
+        Credenciales incorrectas
+      </div>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
