@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='estilo.css')}}">
+	<meta charset="utf-8">
+	<title>Chats</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row justify-content-sm-center header center ">
+			<div class="col-lg-3 ">		
+			<img src="{{url_for('static', filename='profile-user.png')}}" class="profile-pic">		
+			</div>
+			<div class="col-lg-6 ">
+				<h1><span class="align-middle ">Sergio Carbone</span></h1>
+			</div>
+		</div>
+		<div class="row justify-content-sm-center ">
+			<div class="col-lg-4 grupo">
+				<div class="row align-items-start ">
+					<div class="col chat">
+						<name>Mattias</name>
+						<p>Hola ! Cuando nos reunimos para avanzar nuestro proyecto de vli?</p>
+					</div>
+				</div>
+				<div class="row align-items-start">
+					<div class="col chat">
+						<name>Diego</name>
+						<p>Ya te envie el avance del trabajo!</p>
+					</div>
+				</div>
+				<div class="row align-items-start">
+					<div class="col chat">
+						<name>Nicolas</name>
+						<p>Yaa, nos vemos el sabado entonces!</p>
+					</div>
+				</div>
+				<div class="row align-items-start">
+					<div class="col chat">
+						<name>Jose</name>
+						<p>Hola, que tal?</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-8 main">
+				<div class="row headerChat center">
+							<div class="col-lg-3 ">
+							<img src="{{url_for('static', filename='profile.jpg')}}" class="profile-pic">
+					
+							</div>
+							
+							<div class="col-lg-9 ">
+							<h3><span class="align-middle">Jose B.</span></h3>
+							</div>
+
+				</div>
+					
+				<div class="row mensajes">
+					<div class="row justify-content-sm-start">		
+						<div class="col-lg-12  msj ">
+							<h5>Hola !</h5>
+						</div>
+					</div>
+				</div>
+				<div class="row mensajes justify-content-end">				
+					<div class="row justify-content-sm-end">	
+						<div class="col-lg-12  align-self-end msj " >
+							<h5>Hola, que tal?</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row escribir " >
+				<div class="col-lg-8 offset-lg-4">
+						<form class="form-inline">
+							<input type="text" name="mensajeEnvio" class="mensajeEnvio">
+							<input type="submit" name="Send" class="btn btn-primary" value="Send">
+					</form>
+			</div>
+		</div> 
+	</div>	
+</body>
+</html>
