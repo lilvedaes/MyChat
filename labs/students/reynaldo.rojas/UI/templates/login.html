@@ -13,19 +13,23 @@
   <link href="../static/signin.css" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" rel="stylesheet">
 </head>
+<style>
+body{
+    background: url("../static/cityV.gif")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+</style>
+
 <body>
     <form class="form-signin" name="form" method="post" action="/login">
       <img class="mb-4" src="../static/download.jpeg" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Por favor ingrese sus datos</h1>
       <label for="inputEmail" class="sr-only">Correo</label>
       <input type="username" name="username" id="inputEmail" class="form-control" placeholder="Nombre de usuario" required autofocus>
       <label for="inputPassword" class="sr-only">Contraseña</label>
       <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
       <input class="btn btn-lg btn-primary btn-block" type="submit">
       {%with messages = get_flashed_messages()%}
           {%if messages%}
