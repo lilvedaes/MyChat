@@ -1,3 +1,9 @@
+{%block body%}
+{%if session['logged_in']%}
+<script language="javascript" type="text/javascript">
+    window.location="/chats.html";
+</script>
+{%else%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,43 +14,24 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" rel="stylesheet">
 </head>
 <body>
-  <script>
-  function showToast(){
-    var toast = document.getElementById("Toast");
-    toast.classname="show";
-    setTimeout(function(){
-      toast.classname = toast.classname.replace("show", "");
-      }, 2000);
-  }
-  function verify(){
-    if (document.form1.txt.value=="hello@utec.edu.pe" && document.form1.num.value=="world"){
-      window.location="/chats";
-    }
-    else {
-      showToast();
-    }
-  }
-  document.oncontextmenu=new Function("return false");
-  </script>
-    <form class="form-signin" name="form1">
+    <form class="form-signin" name="form" method="post" action="/login">
       <img class="mb-4" src="../static/download.jpeg" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Por favor ingrese sus datos</h1>
       <label for="inputEmail" class="sr-only">Correo</label>
-      <input type="email" name="txt" id="inputEmail" class="form-control" placeholder="Correo" required autofocus>
+      <input type="username" name="username" id="inputEmail" class="form-control" placeholder="Nombre de usuario" required autofocus>
       <label for="inputPassword" class="sr-only">Contraseña</label>
-      <input type="password" name="num" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="button" onclick="verify()">Sign in</button>
-      <div id="Toast">
-        Credenciales incorrectas
-      </div>
+      <input class="btn btn-lg btn-primary btn-block" type="submit">
     </form>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
+{%endif%}
+{%endblock%}
