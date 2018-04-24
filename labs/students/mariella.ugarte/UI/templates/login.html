@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/style.css" type="text/css">
+<style>
+body{
+	background:url("https://images7.alphacoders.com/411/thumb-1920-411820.jpg");
+    
+}
+</style>
+
+{% block body %}
+{% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% else %}
+
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+             
+             	{% for message in messages %}
+             	<style>
+             	.alert {
+                       padding: 20px;
+                       background-color: rgba(100, 100, 100, 0.5);
+                       color: white;
+
+                       }
+
+                .closebtn {
+                margin-left: 15px;
+                color: white;
+                font-weight: bold;
+                float: right;
+                font-size: 22px;
+                line-height: 20px;
+                cursor: pointer;
+                transition: 0.3s;
+                           }
+
+               .closebtn:hover {
+                color: black;
+                                }
+                </style>
+             	<div class="alert alert-success">
+             		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;
+             		</span> 
+             	      {{message}}
+             	</div>
+             	     
+             	{% endfor %}	
+             
+        {% endif %}
+{% endwith %}
+
+ 
+ 
+<form action="/login" method="POST">
+	<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>My Chat</h1>
+				
+			</div>
+ 
+			<div class="login-form">
+
+				<div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="&#9095; Usuario" name="username">
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+ 
+				<div class="control-group">
+				<input type="password" class="login-field" value="" placeholder="&#9919; Contraseña" name="password">
+				<label class="login-field-icon fui-lock" for="login-pass"></label>
+				</div>
+ 
+                <input type="submit" value="Log in" onclick="usrpas()" class="btn btn-primary btn-large btn-block" >
+			    <br>
+			</div>
+		</div>
+	</div>
+</form>
+ </body>
+{% endif %}
+{% endblock %}
