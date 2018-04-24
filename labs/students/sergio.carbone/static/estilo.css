@@ -1,0 +1,82 @@
+.formulario{
+	text-align: center;
+	border: 6px solid #08085e;
+	border-radius: 5px;
+}
+.container{
+	margin-top: 10%;
+}
+.credencial{
+	width: 90%;
+	height: 40px;
+	margin: 15px 5px;
+	padding-left: 7px;
+	border: 3px solid #0069d9;
+	border-radius: 5px;
+}
+.enviar{
+	margin: 5px;
+	margin-bottom: 15px;
+}
+h1{
+	letter-spacing: 4px;
+}
+.chat{
+	
+	background-color:   #80d7ff;
+	border: 1px solid white;
+	border-color: white skyblue;
+}
+.header{
+	padding-bottom: 20px;
+	padding-top: 20px;
+	background-color:   #33beff;
+}
+name{
+	font-weight: bold;
+}
+.mensajes{
+	
+}
+.grupo{
+	background-color: #bbe5f6;
+	/*border-radius: 10px;*/
+}
+.test{
+	background-color: red;
+}
+.msj{
+	
+	border-radius: 15px;
+	margin: 15px 30px;
+	background-color: #f7f4e3;
+	clear: both;
+
+}
+.main{
+	height: 400px;
+	background-color:  #e6f7ff;
+}
+
+
+.escribir{
+	background-color: #e6f7ff;
+	padding-bottom: 10px;
+}
+.mensajeEnvio{
+	width: 80%;
+	margin: 0px 15px;
+}
+.profile-pic{
+	width: 70px;
+	border-radius: 50pc;
+}
+.headerChat{
+	background-color:   #b3e7ff;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+.center{
+	text-align: center;
+	align-items:center;
+}

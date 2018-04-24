@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='estilo.css')}}">
+	<meta charset="utf-8">
+	<title>Login</title>
+
+	<!--          INICIO DE SCRPIPT                -->
+	<script type="text/javascript">
+	function validacion(){
+		var usuario=document.loginForm.usuario.value;
+		var contraseña=document.loginForm.password.value;
+		if(usuario == "carlos" && contraseña=="123"){
+			alert("Go next");
+			return true;
+		}
+		else{
+			alert("Usuario o contraseña incorrecta");
+			return false;
+		}
+	}
+	</script>
+
+</head>
+
+<body> 
+	<div class="container">	
+		<div class="row justify-content-sm-center">
+			<div class="col-md-12 col-lg-6" >
+				<form name="loginForm" onsubmit="return validacion();" action="/chats" class="formulario" method="get">
+					<h1>Chat</h1><br>
+					<input type="text" name="usuario" placeholder="Usuario" class="credencial"><br>
+					<input type="password" name="password" placeholder="Contraseña" class="credencial"><br>
+					<input type="submit" name="go!" class="enviar btn btn-primary" value="LogIn"> 
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
