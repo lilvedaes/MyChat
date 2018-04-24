@@ -1,17 +1,17 @@
-/* Chat containers */
-
 .q {
     border: 2px solid #F08080;
-    background-color: #CD5C5C;
+    background: rgba(100, 100, 100, 0.5);
+    color:#fff;
     border-radius: 5px;
     padding: 10px;
     margin: 10px 0;
-    
+
 }
 
 .l {
     border-color: #20B2AA      ;
-    background-color: #87CEFA;
+    background-color:rgb(255,0,0);
+    opacity:0.6;
 }
 
 .q::after {
@@ -43,3 +43,31 @@ input[type="button"]{
 .x{
     float:right;
 }
+.online, .offline, .me {
+    margin-right: 3px;
+    font-size: 10px;
+  }
+  
+.online {
+  color: #86BB71;
+}
+  
+.offline {
+  color: #E38968;
+}
+
+.me {
+  color: $blue;
+}
+.chat-message {
+    padding: 300px;
+    
+    textarea {
+      width: 100%;
+      border: none;
+      padding: 10px 20px;
+      font: 14px/22px "Lato", Arial, sans-serif;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      resize: none;
+      
