@@ -1,12 +1,14 @@
 from flask import Flask, flash, render_template, session, request, redirect, session, abort
 import os
+from sqlalchemy.orm import sessionmaker
+from tableini import *
+
+engine = create_engine('sqlite:///data.db', echo=True)
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    if 'count' not in session:
-        session['count'] = 0
     if not session.get('logged_in'):
         return render_template('login.html')
     else:
@@ -30,9 +32,16 @@ def users():
 
 @app.route('/login', methods = ['POST'])
 def login():
-    if 'count' not in session:
-        session['count'] = 0
-    if request.form["password"] == 'Rojas' and request.form["username"] == 'Reynaldo':
+
+    POST_USERNAME = str(request.form['username'])
+    POST_PASSWORD = str(request.form['password'])
+
+    Session = sessionmaker(bind=engine)
+    s = Session()
+    query = s.query(User).filter(User.username.in_([POST_USERNAME]),User.password.in_([POST_PASSWORD]))
+    result = query.first()
+
+    if result:
         session['logged_in'] = True
     else:
         flash('Wrong password')
@@ -40,8 +49,6 @@ def login():
 
 @app.route('/logout')
 def logout():
-    if 'count' not in session:
-        session['count'] = 0
     session['logged_in'] = False
     return home()
 
