@@ -7,6 +7,7 @@ from sqlalchemy.orm import sessionmaker
 
 #------------------------SQLAlchemy-----------------------------------------------------
 Base = declarative_base()
+dicusers = {}
 
 
 class User(Base):
@@ -20,14 +21,6 @@ class User(Base):
 #------------------------FLASK-----------------------------------------------------
 app = Flask(__name__)
 app.secret_key = "You Will Never Guess"
-allusers = []
-
-
-def find(algo, lista):
-    try:
-        return lista.index(algo)
-    except:
-        return -1
 
 
 @app.route('/')
@@ -37,7 +30,24 @@ def login():
 
 @app.route('/dologin', methods=['POST', 'GET'])
 def dologin():
+    global dicusers
     if request.method == 'POST':
+        getusers()
+        user = request.form['user']
+        passw = request.form['pass']
+
+        if user in dicusers and passw == dicusers[user][0]:
+            dicusers = {}
+            return render_template('Chat.html')
+        else:
+            time.sleep(1)
+            return redirect("/")
+
+
+#@app.route('/getusers', methods=['POST', 'GET'])
+def getusers():
+    global dicusers
+    if dicusers == {}:  # if empty
         engine = create_engine('sqlite:///:memory:', echo=True)
         Base.metadata.create_all(engine)
 
@@ -63,24 +73,18 @@ def dologin():
         session.commit()
 
         listin = session.query(User)
-        dicusers = {}
 
         for i in listin:
             dicusers[i.username] = [i.password, i.fullname]
 
-        user = request.form['user']
-        passw = request.form['pass']
+        print("------------------------------FROM DATABASE---------------------------")
 
-        if user in dicusers and passw == dicusers[user][0]:
-            return render_template('Chat.html')
-        else:
-            time.sleep(1)
-            return redirect("/")
+    else:
+        print("------------------------------FROM CACHE---------------------------")
 
-
-#@app.route('/getusers', methods=['POST', 'GET'])
-# def getusers():
+    return
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # dicusers = {}
+    app.run()
