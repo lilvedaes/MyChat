@@ -1,0 +1,83 @@
+body {
+	background-color: #F1F8E9;
+}
+
+h1, h2, h3, h4, p {
+	margin: 0;
+	padding: 0;
+}
+.user-info {
+	background-color: #689F38;
+	padding-top: 2rem;
+	padding-right: 1rem;
+	padding-bottom: 2rem;
+	padding-left: 2rem;
+}
+
+.chats {
+	background-color: #DCEDC8;
+	height: 75rem;
+}
+
+.individual-chat {
+	padding: 1rem;
+	border-bottom: 1px solid #AED581;
+}
+
+.individual-chat:hover {
+	background-color: #C5E1A5;
+}
+
+.individual-chat .contact-name {
+	display: inline-block;
+	font-weight: bold;
+	font-size: 2rem;
+}
+
+.individual-chat .last-message {
+	display: inline-block;
+}
+
+.individual-chat .last-message-time {
+	display: inline-block;
+	float: right;
+}
+
+.individual-chat .number-nonread {
+	display: inline-block;
+	float: right;
+}
+
+.current-chat-data {
+	background-color: #8BC34A;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+.current-chat-data .current-chat-contact-active-time {
+	font-size: 1.3rem;
+}
+
+.chat-messages {
+	height: 70rem;
+}
+
+.chat-messages .message {
+	display: block;
+	padding: 1em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	width: 25em;
+}
+
+.chat-messages .my-message {
+	background-color: #C5E1A5;
+	float: right
+}
+
+.chat-messages .ext-message {
+	background-color: #e0e0e0;
+	float: left;
+}
