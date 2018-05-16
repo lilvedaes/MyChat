@@ -10,12 +10,7 @@ engine = db.createEngine()
 
 @app.route('/')
 def hello_world():
-    sesion = db.getSession(engine)
-    users = sesion.query(entities.User)
-    for user in users:
-        id_siguiente=int(user.id)+1
-    print(id_siguiente)
-    return render_template('login.html',value=id_siguiente)
+    return render_template('login.html')
 
 @app.route('/dologin',  methods = ['POST'])
 def do_login():
@@ -80,15 +75,18 @@ def remove_user(id):
 
 @app.route('/users', methods = ['POST'])
 def create_user():
+    session = db.getSession(engine)
+    users = session.query(entities.User)
+    for user in users:
+        id_siguiente=int(user.id)+1
     c = request.get_json(silent=True)
     print(c)
     user = entities.User(
-        id=c['id'],
+        id=id_siguiente,
         name=c['name'],
         fullname=c['fullname'],
         password=c['password']
     )
-    session = db.getSession(engine)
     session.add(user)
     session.commit()
     return 'Created users'
