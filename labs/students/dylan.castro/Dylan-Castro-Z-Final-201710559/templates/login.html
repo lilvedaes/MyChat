@@ -24,7 +24,6 @@ var xhr = new XMLHttpRequest();
 xhr.open("POST", url, true);
 xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 var j = {
-            "id":document.getElementById("cid").value,
             "name":document.getElementById("cusername").value,
             "fullname":document.getElementById("cfullname").value,
             "password":document.getElementById("cpassword").value,
@@ -74,7 +73,6 @@ location.reload();
         <div class="jumbotron">
             <div id="fullname" class="form-group">
 <input type="text" name="fullname" class="form-control" id="cfullname" placeholder="Nombre Completo">
-<input type="hidden" name="id" class="form-control" id="cid" placeholder="Nombre Completo" value="{{ value }}">
 </div>
   <div id="username2" class="input-group mb-3">
 <div class="input-group-prepend">
