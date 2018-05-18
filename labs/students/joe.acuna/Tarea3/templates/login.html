@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> MyCHAT </title>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='estilos.css')}}">
+		<link href="https://fonts.googleapis.com/css?family=Gaegu" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<div class="form">
+				<div class="text-center">
+					<p class="titulo">MyCHAT</p>
+				</div>
+				<form  id = "login" action="/dologin" method="post">
+					<table>
+						<tr>
+							<td><input type="text" class="input" placeholder="@Usuario" name="usuario" id="usuario"></td>
+						</tr>
+						<tr>
+							<td><input type="password" class="input" placeholder="Password" name="pass" id="pass"></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="submit" value="Iniciar" class="btn" ></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+			<div class="text-center">
+				<p class="copy">
+					MyCHAT®.Todo los derechos reservados a mi prro.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
