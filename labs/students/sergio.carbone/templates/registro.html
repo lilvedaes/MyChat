@@ -5,20 +5,22 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='estilo.css')}}">
 	<meta charset="utf-8">
-	<title>Login</title>
-
+	<title>Register</title>
 </head>
+
 
 <body> 
 	<div class="container">	
 		<div class="row justify-content-sm-center">
 			<div class="col-md-12 col-lg-6" >
-				<form name="loginForm" action="/dologin" class="formulario" method="post">
+				<form name="registerForm" action="/doregister" class="formulario" method="post">
+					
 					<h1>Chat</h1><br>
 					<input type="text" name="usuario" placeholder="Usuario" class="credencial"><br>
 					<input type="password" name="password" placeholder="Contraseña" class="credencial"><br>
-					<a href="/registro">¿No tienes una cuenta? Registrate aquí</a><br>
-					<input type="submit" name="go!" class="enviar btn btn-primary" value="LogIn"> 
+					<input type="password" name="password2" placeholder="Repite tu contraseña" class="credencial"><br>
+					<input type="submit" name="submit" class="enviar btn btn-primary" value="Register"> <br>
+					<a href="/" type="button"  class="enviar btn btn-primary">Back to LogIn</a>
 				</form>
 			</div>
 		</div>
