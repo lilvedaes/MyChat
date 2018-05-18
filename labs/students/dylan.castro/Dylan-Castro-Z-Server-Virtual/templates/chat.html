@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Chat Social</title>
+<link rel="shortcut icon" href="{{ url_for('static',filename='minilogo.png') }}" />
+<link rel="stylesheet" href="{{ url_for('static',filename='chat.css') }}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="contenedor" class="jumbotron">
+<img src="{{ url_for('static',filename='logo.png') }}" width="20%" height="10%" style="margin-top:-50px"/>
+<table id="tabla" class="table">
+<thead>
+<tr>
+<th scope="col" style="color:#09F"><img src="{{ url_for('static',filename='photo.jpg') }}" width="50px" height="50px" style="border-radius:25px"/>
+@{{ value }}
+</th>
+<th scope="col" width="80%" id="nombre"></th>
+<th>
+    <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Usuarios Conectados
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">{{session['dylan']}}</a>
+    <a class="dropdown-item" href="#">{{session['jorge']}}</a>
+    <a class="dropdown-item" href="#">{{session['marcos']}}</a>
+  </div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<th style="height:100%;background-color:#DDD;border-radius:0 0 25px 25px;" >
+<h5 class="mb-0">
+<button style="width:100%" class="btn btn-primary" data-toggle="collapse" data-target="#chat1" aria-expanded="false" aria-controls="chat1">
+@Framos
+</button>
+</h5>
+<h5 class="mb-0">
+<button style="width:100%;margin-top:10px;" class="btn btn-primary" data-toggle="collapse" data-target="#chat2" aria-expanded="false" aria-controls="chat2">
+@aacosta
+</button>
+</h5>
+<h5 class="mb-0">
+<button style="width:100%;margin-top:10px;" class="btn btn-primary" data-toggle="collapse" data-target="#chat3" aria-expanded="false" aria-controls="chat3">
+@mbellido
+</button>
+</h5>
+</th>
+<th>
+<div id="accordion">
+<div id="chat1" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+<div class="card-body">
+<p class="caja1">Hola</p>
+<p class="caja2">Ey que tal</p>
+</div>
+</div>
+
+<div id="chat2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+<div class="card-body">
+<p class="caja1">Hola</p>
+<p class="caja2">Que hay de nuevo?</p>
+</div>
+</div>
+
+<div id="chat3" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+<div class="card-body">
+<p class="caja1">Hola</p>
+<p class="caja2">Hola, Como estas?</p>
+</div>
+</div>
+</div>
+</th>
+</tr>
+<tr>
+<th>
+<form action="/logout" method="post">
+<input type="hidden" name="id" value="{{value}}" />
+<input type="submit" class="btn btn-primary" style="width:100%" aria-expanded="false" aria-controls="chat3" value="Desconectarse"/>
+</form>
+</th>
+<th>
+<div id="extras">
+<input type="button" value="Enviar" class="btn btn-primary" style="float:right;">
+<input type="text" class="form-text" style="float:right;width:85%; margin-right:10px"/>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</div>
+<script>
+$('#extras').hide();
+$('#chat1').on('shown.bs.collapse', function () {
+	document.getElementById("nombre").innerHTML = "@Framos";
+	document.getElementById("accordion").style.backgroundImage = "url({{ url_for('static',filename='fondo-conversacion.jpg') }})";
+	$('#extras').show();
+})
+$('#chat1').on('hide.bs.collapse', function () {
+	document.getElementById("nombre").innerHTML = "";
+	document.getElementById("accordion").style.backgroundImage = "";
+	$('#extras').hide();
+})
+$('#chat2').on('shown.bs.collapse', function () {
+	document.getElementById("accordion").style.backgroundImage = "url({{ url_for('static',filename='fondo-conversacion2.jpg') }})";
+	document.getElementById("nombre").innerHTML = "@aacosta";
+	$('#extras').show();
+})
+$('#chat2').on('hide.bs.collapse', function () {
+	document.getElementById("nombre").innerHTML = "";
+	document.getElementById("accordion").style.backgroundImage = "";
+	$('#extras').hide();
+})
+$('#chat3').on('shown.bs.collapse', function () {
+	document.getElementById("accordion").style.backgroundImage = "url({{ url_for('static',filename='fondo-conversacion3.jpg') }})";
+	document.getElementById("nombre").innerHTML = "@mbellido";
+	$('#extras').show();
+})
+$('#chat3').on('hide.bs.collapse', function () {
+	document.getElementById("nombre").innerHTML = "";
+	document.getElementById("accordion").style.backgroundImage = "";
+	$('#extras').hide();
+})
+</script>	
+</body>
+</html>
