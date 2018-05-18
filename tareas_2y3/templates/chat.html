@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>PearChat</title>
+	<!-- Mobile Specific Metas
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- FONT
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+	<!-- CSS
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/normalize.css') }}">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/skeleton.css') }}">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/main.css') }}">
+	<!-- Favicon
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel= "icon" type= "image/png" href= "{{ url_for('static',filename='images/pear.png') }}">
+</head>
+<body>
+	<div class="container">
+		<div class="row" style="margin-top: 3%;">
+			<div class="four columns">
+				<div class="left-panel">
+					<div class="user-info">
+						<h4>Arturo Cuya</h4>
+						<p>@arturocuya</p>
+					</div>
+					<div class="chats">
+						<div class="individual-chat">
+							<div>
+								<p class ="contact-name">Apursh <3</p>
+								<span class="last-message-time">20:40</span>
+							</div>
+							<div>
+								<p class="last-message">Helloooooo puuursh</p>
+								<div class="number-nonread">
+									<p>~1~</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="individual-chat">
+							<div>
+								<p class ="contact-name">Mom</p>
+								<span class="last-message-time">20:33</span>
+							</div>
+							<div>
+								<p class="last-message">Te pasas</p>
+								<div class="number-nonread">
+									<p>~20~</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="individual-chat" style="background-color: #C5E1A5">
+							<div>
+								<p class ="contact-name">Dad</p>
+								<span class="last-message-time">20:24</span>
+							</div>
+							<div>
+								<p class="last-message">Ok</p>
+								<div class="number-nonread">
+									<p></p>
+								</div>
+							</div>
+						</div>
+
+						<div class="individual-chat">
+							<div>
+								<p class ="contact-name">Furnace</p>
+								<span class="last-message-time">11:45</span>
+							</div>
+							<div>
+								<p class="last-message">ahi te lo mando</p>
+								<div class="number-nonread">
+									<p>~2~</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="eight columns">
+				<div class="current-chat-data">
+					<p class="current-chat-contact-name">Dad</p>
+					<p class="current-chat-contact-active-time">últ. vez: 15:04</p>
+				</div>
+				<div class="chat-messages">
+					<div class="message ext-message">
+						<p>Ya hijo no te preocupes, mañana lo vemos</p>
+					</div>
+					<div class="message my-message">
+						<p>Ok pa. Te espero</p>
+					</div>
+					<div class="message ext-message">
+						<p>Ok</p>
+					</div>
+				</div>
+				<div class="input-message">
+					<form onsubmit="return false">
+						<input type="text" class="u-full-width">
+						<input class="button-primary" type="submit" value="Enviar" style="display: block; float: right;">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
