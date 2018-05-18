@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>Chat Social</title>
+<link rel="shortcut icon" href="{{ url_for('static',filename='minilogo.png') }}" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href= "{{ url_for('static',filename='login.css') }}">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+
+function L_Usuarios(){
+if(document.getElementById("clave_secreta").value=="A0Zr98j/3yX R~XHH!jmN]LWX/,?RT"){
+location.href ="/users";
+}
+else{
+alert("Clave Maestra Incorrecta");
+}
+}
+function Crear(){
+var url = "/users";
+var xhr = new XMLHttpRequest();
+xhr.open("POST", url, true);
+xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+var j = {
+            "name":document.getElementById("cusername").value,
+            "fullname":document.getElementById("cfullname").value,
+            "password":document.getElementById("cpassword").value,
+        };
+xhr.send(JSON.stringify(j));
+location.reload();
+}
+</script>
+</head>
+<body>
+<div id="contenedor" class="jumbotron">
+<div id="titulo">
+<marquee behavior="alternate"><img src="{{ url_for('static',filename='logo.png') }}" height="40%"></marquee>
+</div>
+    <table>
+<form name="form" action="/dologin" method="post">
+<div id="username" class="input-group mb-3">
+<div class="input-group-prepend">
+<span class="input-group-text" id="basic-addon1">@</span>
+</div>
+<input type="text" name="username" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+<div id="password" class="form-group">
+<input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Username">
+</div>
+<tr><th><input type="submit" value="Acceder" class="btn btn-primary"></th>
+</form>
+<!-- Button trigger modal -->
+<th><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Crear Usuario
+</button></th>
+<th><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
+  Lista de usuarios
+</button></th></tr></table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Crear Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="jumbotron">
+            <div id="fullname" class="form-group">
+<input type="text" name="fullname" class="form-control" id="cfullname" placeholder="Nombre Completo">
+</div>
+  <div id="username2" class="input-group mb-3">
+<div class="input-group-prepend">
+<span class="input-group-text" id="basic-addon2">@</span>
+</div>
+<input type="text" name="username" id="cusername" class="form-control" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+<div id="password2" class="form-group">
+<input type="password" name="password" class="form-control" id="cpassword" placeholder="Contraseña">
+</div>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" onclick="Crear()" class="btn btn-primary">Crear Usuario</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">Clave Maestra</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h5>Ingrese su clave Maestra:</h5>
+        <input type="text" name="clave_secreta" id="clave_secreta" class="form-control" placeholder="Clave Maestra" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button"  onclick="L_Usuarios()" class="btn btn-primary">Comprobar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
