@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+<script type="text/javascript">
+function alerta() {
+  if (document.getElementById("usuario").value==0 || document.getElementById("password").value==0) {
+    alert("Ingresa tu nombre y contraseña");
+    return false ;
+  } else if (document.getElementById("usuario").value=="admin" && document.getElementById("password").value== "admin1") {
+      document.getElementById("login").submit();
+  }
+  else {
+    alert("Usuario o Contraseña incorrectos")
+    return false;
+  }
+}
+  </script>
+</head>
+
+<title>My Chat</title>
+  <body style="background-color:DodgerBlue;">
+  <center>
+    <h1 style="color:Tomato;">MyChat</h1>
+    <div>
+      <form id="login" action="/chat">
+        <p><label>Usuario:</label></p>
+        <input name="usuario" type="text" id="usuario" placeholder="Ingresar Usuario" >
+        <p><label>Contraseña: </label></p>
+        <input name="password" type="password" id="password" placeholder="Ingresar contraseña" >
+      </form>
+      <p><input type="button" value="Ingresar"  onclick="alerta();"></p>
+    </div>
+  </center>
+  </body>
+</html>

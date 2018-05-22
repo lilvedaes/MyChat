@@ -1,0 +1,48 @@
+<!--Usuario: csalcedo-->
+<!--Contraseña: 12345678-->
+
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1" style="margin-top:50px;">
+            <div class="floating-card">
+                <form name="login" action="/dologin" method="post">
+                    <div style="text-align: center">
+                        <h1>
+                            MyCHAT
+                        </h1>
+
+                        {% if error == 2 or error == 3%}
+                            <div id="login-error" class="alert alert-danger" style="font-size: 16px">
+                                Invalid password or username.
+                            </div>
+                        {% endif %}
+
+                        <div class="input-group" style="margin-bottom: 25px">
+                            <span class="input-group-addon">
+                                @
+                            </span>
+
+                            <input type="text" class="form-control" name="username" placeholder="Username" value="{{ request.form.username }}">
+                        </div>
+
+                        <div class="input" style="margin-bottom: 25px">
+                            <input type="password" class="form-control" name="password" placeholder="Password" value="{{ request.form.password }}">
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 50px">
+                        <input id="btn-login" type="submit" class="my-btn btn btn-primary" value="SIGN IN"/>
+                    </div>
+                </form>
+
+                <p>
+                    Don't have an account? <a href="/register">Sign Up</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

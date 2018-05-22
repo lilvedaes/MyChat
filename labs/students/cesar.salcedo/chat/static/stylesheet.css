@@ -1,0 +1,67 @@
+body {
+    color: #222222;
+    font-family: 'Verdana';
+    background: #f8f8f8;
+}
+
+h1, h2 {
+    font-family: 'Verdana';
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+h1 {
+    color: #606060;
+    font-size: 48px;
+ }
+
+h2 {
+    color: #707070;
+    font-size: 28px;
+}
+
+p {
+    color: #444;
+}
+
+.chatbox-left, .chatbox-right {
+    max-width: 70%;
+    background: white;
+    border: 2px solid #E0E0E0;
+    box-shadow: 2px 4px 12px #BBB;
+    border-width: 0px;
+    border-radius: 8px;
+    vertical-align: middle;
+    line-height: 30px;
+    padding-left: 10px;
+    margin-top: 20px;
+}
+
+.chatbox-right {
+    left:30%;
+    position:relative;
+}
+
+.floating-card {
+    text-align: center;
+    background: white;
+    box-shadow: 6px 6px 20px #AAA;
+    border-width: 0px;
+    border-radius: 12px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.over-background {
+    color: #AAAAAA;
+}
+
+.my-btn {
+    height: 40px;
+    width: 100px;
+    border-radius: 20px;
+    border-width: 0px;
+}

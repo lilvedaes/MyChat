@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="chat.css">
+    <title>Chat UTEC</title>
+</head>
+
+<body>
+        <div class="card grey lighten-3 chat-room">
+                <div class="card-body">
+                    <h3>Chat UTEC</h3><br>
+                    <div class="row px-lg-2 px-2">
+                        <div class="col-md-6 col-xl-4 px-0">
+                            <h6 class="font-weight-bold mb-3 text-center text-lg-left">Miembros</h6>
+                            <div class="white z-depth-1 px-3 pt-3 pb-0">
+                                <ul class="list-unstyled friend-list">
+                                    <li class="active grey lighten-3 p-2">
+                                        <a href="#" class="d-flex justify-content-between">
+                                            <img src="https://secure.gravatar.com/blavatar/b3210bac40843a887403be8b9eb6f30f?s=50&d=https%3A%2F%2Fs2.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png" alt="avatar" class="avatar rounded-circle d-flex align-self-center mr-2 z-depth-1">
+                                            <div class="text-small">   
+                                                <strong>Alan Turing</strong>
+                                                <p class="last-message text-muted">No, aún no la he visto</p>
+                                            </div>
+                                            <div class="chat-footer">
+                                                <p class="text-smaller text-muted mb-0">Hace 1 min</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="p-2">
+                                        <a href="#" class="d-flex justify-content-between">
+                                            <img src="https://betanews.com/wp-content/uploads/2012/06/Linus-Torvalds-50x50.png" alt="avatar" class="avatar rounded-circle d-flex align-self-center mr-2 z-depth-1">
+                                            <div class="text-small">   
+                                                <strong>Linus Torvalds</strong>
+                                                <p class="last-message text-muted">Linux es mejor que MacOS</p>
+                                            </div>
+                                            <div class="chat-footer">
+                                                <p class="text-smaller text-muted mb-0">Hace 7 min </p>
+                                                <span class="text-muted float-right"><i class="fa fa-mail-reply" aria-hidden="true"></i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                        </div>
+                        <div class="col-md-6 col-xl-8 pl-md-3 px-lg-auto px-0">
+                            <div class="chat-message">
+                                <ul class="list-unstyled chat">
+                                    <li class="d-flex justify-content-between mb-4">
+                                        <div class="chat-body white p-3 z-depth-1">
+                                            <div class="header">
+                                                <strong class="primary-font">Steve Jobs</strong>
+                                                <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 13 mins ago</small>
+                                            </div>
+                                            <hr class="w-100">
+                                            <p class="mb-0">
+                                                Alan ¿ya viste "The Imitation Game"?
+                                            </p>
+                                        </div>
+                                        <img src="https://qph.fs.quoracdn.net/main-thumb-248091156-50-bocirsoluqdqherxfndwoaelwbhyizqz.jpeg" alt="avatar" class="avatar rounded-circle mr-0 ml-3 z-depth-1">
+                                    </li>
+                                    <li class="d-flex justify-content-between mb-4 pb-3">
+                                        <img src="https://secure.gravatar.com/blavatar/b3210bac40843a887403be8b9eb6f30f?s=50&d=https://s2.wp.com/i/logo/wpcom-gray-white.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1">
+                                        <div class="chat-body white p-3 ml-2 z-depth-1">
+                                            <div class="header">
+                                                <strong class="primary-font">Alan Turing</strong>
+                                                <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> Hace 5 mins</small>
+                                            </div>
+                                            <hr class="w-100">
+                                            <p class="mb-0">
+                                                    No, aún no la he visto
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="white">
+                                        <div class="form-group basic-textarea">
+                                            <textarea class="form-control pl-2 my-0" id="exampleFormControlTextarea2" rows="3" placeholder="Type your message here..."></textarea>
+                                        </div>
+                                    </li>
+                                    <button type="button" class="btn btn-info btn-rounded btn-sm waves-effect waves-light float-right">Send</button>
+                                </ul>
+            
+                            </div>
+                    
+                        </div>
+                    </div> 
+                </div>
+            </div>
+  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</body>
+
+</html>
