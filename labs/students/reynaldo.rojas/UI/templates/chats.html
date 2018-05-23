@@ -1,0 +1,89 @@
+{%extends 'layout.html'%}
+
+{%block body%}
+<div class="container">
+  <header class="blog-header py-3">
+    <div class="row">
+      <div class="col-sm-3">
+        <div id="some-container" class="input-group">
+          <input type="text" class="form-control" placeholder="Nombre o grupo">
+          <span class="input-group-addon">
+            <button type="submit">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <p id="name">MyChat</p>
+      </div>
+    </div>
+  </header>
+  <div class="row mb-2">
+    <div class="col-sm-4">
+      <div class="card flex-md-row mb-4 box-shadow h-md-250">
+        <div class="card-body d-flex flex-column align-items-start">
+          <div class="list-group">
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">Maritza</h4><span class="badge">2</span>
+              <p class="list-group-item-text">Uwu</p>
+            </li>
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">Erick</h4><span class="badge">1</span>
+              <p class="list-group-item-text">:v</p>
+            </li>
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">Anthony</h4>
+              <p class="list-group-item-text">Stemen</p>
+            </li>
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">Maritza</h4><span class="badge">2</span>
+              <p class="list-group-item-text">Uwu</p>
+            </li>
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">Erick</h4><span class="badge">1</span>
+              <p class="list-group-item-text">:v</p>
+            </li>
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">Anthony</h4>
+              <p class="list-group-item-text">Stemen</p>
+            </li>
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">Maritza</h4><span class="badge">2</span>
+              <p class="list-group-item-text">Uwu</p>
+            </li>
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">Erick</h4><span class="badge">1</span>
+              <p class="list-group-item-text">:v</p>
+            </li>
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">Anthony</h4>
+              <p class="list-group-item-text">Stemen</p>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8 wrapChat">
+      <div class="myMessage">
+        <img src="../static/Head_VI__1949.JPG" class="right">
+        <p class="text-white">Hola, hiciste la tarea de Desarrollo?</p>
+        <span class="time-right text-white">11:00</span>
+      </div>
+
+      <div class="messageWrapper">
+        <img src="../static/pg-6-bacon-1.jpg">
+        <p>No, recién la voy a hacer :v</p>
+        <span class="time-left">11:01</span>
+      </div>
+
+      <div class="myMessage">
+        <img src="../static/Head_VI__1949.JPG" class="right">
+        <p class="text-white">Yo también xd</p>
+        <span class="time-right text-white">11:02</span>
+      </div>
+    </div>
+</div>
+<input class"logout-button" type="button" onclick="location.href='/logout';" value="Logout" />
+</div>
+{%endblock%}

@@ -1,0 +1,48 @@
+input[type=submit] {
+background-color: #419DDF;
+color: white;
+padding: 5px 20px;
+margin-left: 350px;
+border-radius: 4px;
+cursor:pointer;
+border:#419DDF;
+}
+
+div.chatp1{
+	border: 1px solid #D0D0D0; 
+	padding:10px 15px 10px 15px;
+	margin-top:-1px;
+	border-top-right-radius: 7px;
+}
+
+a.chatp2{
+	margin:10px 15px 10px 15px;
+
+}
+
+div.chatp3{
+	border: 1px solid #D0D0D0; padding:10px 15px 10px 15px;margin-top:-1px;
+}
+
+div.aun{
+	border: 1px solid #D0D0D0;
+	margin-top:-1px;
+	height: 45px;
+	border-bottom-right-radius: 7px;
+}
+
+span.yell{
+	padding-left:9;padding-right:9;margin:19px;background-color:#FFBF22;border-radius:40px;
+	
+}
+span.green{
+	padding-left:9;padding-right:9;margin:106px;background-color:#4FC73E;border-radius:40px;
+}
+span.blue{
+	padding-left:9;padding-right:9;background-color:#34BEE5;border-radius:40px;margin:65px;
+}
+
+
+a.send1{
+	border: 1px solid #D0D0D0;padding:3px;border-radius: 4px;
+}

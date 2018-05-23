@@ -1,0 +1,48 @@
+{%block body%}
+{%if session['logged_in']%}
+<script language="javascript" type="text/javascript">
+    window.location="/chats.html";
+</script>
+{%else%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="../static/signin.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" rel="stylesheet">
+</head>
+<style>
+body{
+    background: url("../static/cityV.gif")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+</style>
+
+<body>
+    <form class="form-signin" name="form" method="post" action="/login">
+      <img class="mb-4" src="../static/download.jpeg" width="72" height="72">
+      <label for="inputEmail" class="sr-only">Correo</label>
+      <input type="username" name="username" id="inputEmail" class="form-control" placeholder="Nombre de usuario" required autofocus>
+      <label for="inputPassword" class="sr-only">Contraseña</label>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+      <input class="btn btn-lg btn-primary btn-block" type="submit">
+      {%with messages = get_flashed_messages()%}
+          {%if messages%}
+              {%for message in messages%}
+                  <h2 class="error">{{message}}</h2>
+              {%endfor%}
+          {%endif%}
+      {%endwith%}
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
+{%endif%}
+{%endblock%}

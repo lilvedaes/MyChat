@@ -1,0 +1,309 @@
+//right width: 70%
+//left width: 30%
+//height right: 8%
+//height left: 20%
+// top right bottom left
+
+div{
+  display: block;
+}
+
+div.message>span{
+  width: 80px;
+  word-wrap:break-word;
+  //background-color: red;
+  padding: 0.1em;
+  font-size: 100%
+}
+
+.message{
+  display: block;
+  width: 50%;
+  max-width: 80%;
+  border-radius: 10px;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
+#message-me.message{
+  float: right;
+  //clear: left;
+  background-color: skyblue;
+
+}
+
+.message#message-you{
+  background-color: red;
+  float: left;
+}
+
+
+#messages-container{
+  //position: relative;
+  height: 87%;
+  width: 100%;
+  //min-width: 200px;
+  //display: block;
+  background-color: yellow;
+  overflow: scroll;
+}
+
+#messages-container>p{
+  font-size: 2em;
+}
+
+img.chats{
+  width: 50%;
+  min-width: 60px;
+  margin: 0.5em;
+  margin-top: -10%;
+  //float: left;
+  //display: inline;
+}
+
+p.chats{
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+}
+
+div.chats{
+  display: block;
+  height: 15%;
+  min-height: 80px;
+  padding: 0.4em;
+  background-color: lightgrey;
+  border: solid 2px green;
+  overflow: hidden;
+}
+
+#div-chats-text{
+  display: inline-block;
+  //background-color: red;
+
+  //margin-top: 1em;
+  //padding-left: 20%;
+  //margin-left: 20%;
+  //float: right;
+}
+
+
+#chats-container{
+  overflow: scroll;
+  position: relative;
+  bottom: 0;
+  height: 80%;
+  width: 100%;
+  background-color: white;
+}
+
+
+#searchbar{
+  padding: 0.5em;
+  padding-right: 1em;
+}
+
+#searchbar>input{
+  position: relative;
+  padding-left: 3em;
+}
+
+#searchbar>.glyphicon{
+  color: green;
+  display: inline;
+  padding: 1em;
+}
+
+#message-writebar{
+  position: sticky;
+  width: 100%;
+  height: 6%;
+  background-color: grey;
+  //padding: 0.1em;
+}
+
+#message-writebar>.glyphicon{
+  font-size: 1.5em;
+  color: white;
+}
+
+#message-writebar>input{
+  display: inline;
+  width: 95%;
+  //border-radius: 0;
+  margin: 0.5em;
+}
+
+#profile {
+  padding: 1em;
+  background-color: slateblue;
+  height: 40%;
+}
+
+#profile > .glyphicon{
+  color: white;
+  font-size: 2em;
+  float: right;
+  margin-right: 0.5em;
+}
+
+#profile>img {
+  font-size: 1.5em;
+  width: 13%;
+}
+
+#profile>h4 {
+  font-size: 1.5em;
+  color: white;
+  font-weight: lighter;
+}
+
+h4.chats{
+  margin: 0.5em 1em 0.5em 1em;
+  display: inline;
+  font-family: "Roboto";
+  font-weight: bold;
+  clear: left;
+}
+
+img.chats {
+  display: inline;
+  border-radius: 50%;
+  width: 10%;
+}
+
+img.contact {
+  display: inline;
+  border-radius: 50%;
+}
+
+h4.contact {
+  margin: 0.5em 1em 0.5em 1em;
+  display: inline;
+  font-family: "Roboto";
+  font-weight: bold;
+}
+
+#currentcontact {
+  position: relative;
+  padding: 0.5em 3em 0.5em 3em;
+  //background-color: black;
+  height: 100%;
+  width: 100%;
+  z-index: 30;
+}
+
+#currentcontact>img {
+  position: absolute;
+  right: 5%;
+  //float: right;
+  border: solid 10px tomato;
+  width: 10%;
+  top: -5;
+
+}
+
+#currentcontact>h4 {
+  float: right;
+  //margin-top: 0.5em;
+  margin: 0 15% 0 0;
+  font-size: 2em;
+  text-align: left;
+  //background-color: white;
+}
+
+div.logo {
+  position: sticky;
+  padding: 0.3em;
+  height: 30%;
+  min-height: 48px;
+  width: 100%;
+  background-color: green;
+}
+
+h1.logo {
+  display: block;
+  font-weight: bold;
+  font-family: Lobster;
+  //background-color: white;
+  width: 4em;
+  text-align: center;
+  margin: auto;
+  color: #56F4D3;
+  text-shadow: 10px 5px 5px rgb(0, 0, 0);
+}
+
+#logo-image {
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+  height: auto;
+  width: 30%;
+}
+
+.leftchat {
+  display: inline-block;
+  transform-origin: left top;
+  background-color: dodgerblue;
+  width: 30%;
+  min-width: 310px;
+  height: 100%;
+}
+
+.rightchat {
+  display: inline-block;
+  float: right;
+  background-color: orange;
+  width: 70%;
+  min-width: 200px;
+  height: 100%;
+}
+
+#header{
+  //position: relative;
+  height: 7%;
+  z-index: 10;
+}
+
+.leftchat #header {
+  //position: fixed;
+  width: 100%;
+  height: 20%;
+  min-height: 160px;
+  background-color: black;
+}
+
+.rightchat #header {
+
+  display: block;
+  height: 7%;
+  background-color: tomato;
+  width: 100%;
+}
+
+#welcome {
+  //border: solid 5px red;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  padding: 7em;
+  //margin: auto;
+  z-index: 20;
+  //background-color: black;
+}
+
+h1 {
+  font-size: 1.8em;
+}
+
+h2, h3 {
+  font: bold 5em "Bree Serif";
+  text-align: center; //color: white;
+}
+
+h3 {
+  font: 1em "Lato";
+}

@@ -1,0 +1,60 @@
+<!--Usuario: csalcedo-->
+<!--Contraseña: 12345678-->
+
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1" style="margin-top:50px;">
+        <div class="floating-card">
+            <form name="register" action="/doregister/" method="post">
+                <div style="text-align: center">
+                    <h1>
+                        MyCHAT
+                    </h1>
+
+                    {% if error %}
+
+                        <div class="alert alert-danger" style="font-size: 16px">
+                            {% if error == 2 %}
+                                Blank spaces
+                            {% elif error == 3 %}
+                                The username you chose already exists
+                            {% elif error == 4 %}
+                                Passwords don't match
+                            {% endif %}
+                        </div>
+
+                    {% endif %}
+
+                    <div class="input-group" style="margin-bottom: 25px">
+                        <span class="input-group-addon">
+                            @
+                        </span>
+
+                        <input type="text" class="form-control" name="username" placeholder="Username" value="{{ request.form.username }}">
+                    </div>
+
+                    <div class="input" style="margin-bottom: 25px">
+                        <input type="password" class="form-control" name="password" placeholder="Password" value="{{ request.form.password }}">
+                    </div>
+
+                    <div class="input" style="margin-bottom: 25px">
+                        <input type="password" class="form-control" name="passwordconfirm" placeholder="Confirm Password" value="{{ request.form.passwordconfirm }}">
+                    </div>
+                </div>
+
+                <div style="text-align: right; margin-bottom: 25px; text-align: center">
+                    <input id="btn-register" type="submit" class="my-btn btn btn-primary" value="SIGN UP"/>
+                </div>
+            </form>
+
+            <p>
+                Have an account? <a href="/login">Sign In</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

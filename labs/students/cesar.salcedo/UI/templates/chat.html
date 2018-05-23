@@ -1,0 +1,137 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <div href="#" style="display:block; padding-top: 15px; padding-bottom: 15px">
+                    <table>
+                        <tr>
+                            <td>
+                                <img src="http://via.placeholder.com/58x58?text=58x58" style="border-radius: 50%"/>
+                            </td>
+
+                            <td style="padding-left: 20px; vertical-align: middle">
+                                <h3 style="color:#4692C4">
+                                    <strong>@csalcedo</strong>
+                                </h3>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <a href="chat#1" class="list-group-item" style="height:90px">
+                        <div style="float:left; font-size:18px">
+                            <h4 style="font-size:20px">
+                                <strong>@ssotelo</strong>
+                            </h4>
+
+                            <div>
+                                Que dices este viernes
+                            </div>
+                        </div>
+
+                        <div style="float:right">
+                            <div style="color:white; background:#6A2; border:none; border-radius: 20px; height:20px; width: 30px; text-align:center; position:relative; bottom:-40px">
+                                2
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="chat#2" class="list-group-item" style="height:90px">
+                        <div style="float:left; font-size:18px">
+                            <h4 style="font-size:20px">
+                                <strong>@shurtado</strong>
+                            </h4>
+
+                            <div>
+                                Reunión en mi casa a las 5PM
+                            </div>
+                        </div>
+
+                        <div style="float:right">
+                            <div style="color:white; background:#EA6; border:none; border-radius: 20px; height:20px; width: 30px; text-align:center; position:relative; bottom:-40px">
+                                3
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="chat#3" class="list-group-item" style="height:90px">
+                        <div style="float:left; font-size:18px">
+                            <h4 style="font-size:20px">
+                                <strong>@rsalcedo</strong>
+                            </h4>
+
+                            <div>
+                                Te estamos esperando ...
+                            </div>
+                        </div>
+
+                        <div style="float:right">
+                            <div style="color:white; background:#8CC; border:none; border-radius: 20px; height:20px; width: 30px; text-align:center; position:relative; bottom:-40px">
+                                5
+                            </div>
+                        </div>
+                    </a>
+
+                    {% for i in range(4) %}
+
+                    <a href="chat#" class="list-group-item" style="height:90px"></a>
+
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="col-sm-7" style="padding:15px">
+                <div class="panel panel-default">
+                    <div style="height:80px; line-height: 70px; box-shadow:0px 5px 18px #AAA">
+                        <span style="display:inline-block; vertical-align: middle; line-height:normal">
+                            <h3 style="padding-left:15px">
+                                <strong>@ssotelo</strong>
+                            </h3>
+                        </span>
+                    </div>
+
+                    <div style="font-size:18px; height:410px; padding-left:15px; padding-right:15px">
+                        <div class="chatbox-left">
+                            Heeeey cesar
+                        </div>
+
+                        <div class="chatbox-right">
+                            Heeeeeeey santiagoo
+                        </div>
+
+                        <div class="chatbox-right">
+                            A los años jaja
+                        </div>
+
+                        <div class="chatbox-right">
+                            Oyee ya hace falta una reunion con wector y armando
+                        </div>
+
+                        <div class="chatbox-left">
+                            Justo eso te iba a decir
+                        </div>
+
+                        <div class="chatbox-left">
+                            Que dices este viernes
+                        </div>
+                    </div>
+                </div>
+
+                <input type="text" value="Buenazoo, estoy libre. Hablare con los demas por el grupo" style="padding:10px; height:100px; width:100%; padding-bottom:70px; border:none; border: 1px solid #DDD; border-radius: 8px; font-size:18px">
+
+                <div style="text-align:right; margin:15px">
+                    <a id="btn-login" class="btn btn-primary" href="#">
+                        Enviar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="over-background">
+            Signed up users: {{ session['users'] }}
+        </div>
+    </div>
+{% endblock %}
