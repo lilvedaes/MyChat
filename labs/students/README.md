@@ -10,4 +10,4 @@ Tarea 5 - Uniform Interface: Crear una API que permita gestionar mensajes.
 
 Tarea 6 - Code on Demand:  Crear una CRUD (usando Devextreme) para que el usuario pueda gestionar los mensajes.
 
-Tarea 7 - Conectar el login de Java con el login del API de Python (recomendación usa libreria Volley)
+Tarea 7 - Mobile Login:  Implementa el mobile de login usando el API implementada en Python.  ( Ver https://developer.android.com/training/volley/ ) Martes 29 de Mayo 11:59 PM
