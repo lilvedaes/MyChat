@@ -1,0 +1,102 @@
+body{
+  background-image: url(../images/ocean.jpg);
+}
+
+div{
+  display: block;
+}
+
+#first {
+    width: 40%;
+    float:left;
+    height: 100%;
+    background-color: white;
+}
+
+#second {
+    overflow: hidden;
+    height: 100%;
+    background-image: url(../images/chatwallpapper.jpg);
+
+}
+
+#minombre{
+  background-color: lightgray;
+  padding: 1.1em;
+}
+
+#chat{
+  background-color: #A9E2F3;
+  padding: 1.1em;
+}
+
+#chat1{
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+}
+
+#p1{
+  background-color: white;
+  //float: right;
+  text-align: right;
+  margin-top: 0.5em;
+  margin-left: 1em;
+  padding: 0.4em;
+}
+
+#p2{
+  background-color: #519CF5;
+  text-align:left;
+  margin-top: 0.5em;
+  margin-right: 1em;
+  padding: 0.4em;
+}
+
+h2{
+  font-weight: normal;
+  float: right;
+  padding-right: 50%;
+  font-size: 1.7em;
+}
+
+h3{
+  font-size: 1.4em;
+  font-weight: normal;
+  float: right;
+  padding-right: 70%;
+  margin-bottom: 0.5%;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    margin-bottom: 70%;
+    background-color: transparent;
+}
+
+#textbox{
+  margin-top: 2.1%;
+  margin-left: 5%;
+  position: fixed;
+}
+
+#avatar{
+  border-radius: 50%;
+  height: 4em;
+  width: 4em;
+
+}
+
+#habla{
+  overflow: scroll;
+  padding: 1em;
+  height: 60%;
+  margin: auto;
+}
+
+#chat1 > p {
+  width: 80%;
+  margin-left: 5em;
+  margin-top: 0.5%;
+}

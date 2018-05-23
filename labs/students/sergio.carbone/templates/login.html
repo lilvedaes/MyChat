@@ -7,32 +7,17 @@
 	<meta charset="utf-8">
 	<title>Login</title>
 
-	<!--          INICIO DE SCRPIPT                -->
-	<script type="text/javascript">
-	function validacion(){
-		var usuario=document.loginForm.usuario.value;
-		var contraseña=document.loginForm.password.value;
-		if(usuario == "carlos" && contraseña=="123"){
-			alert("Go next");
-			return true;
-		}
-		else{
-			alert("Usuario o contraseña incorrecta");
-			return false;
-		}
-	}
-	</script>
-
 </head>
 
 <body> 
 	<div class="container">	
 		<div class="row justify-content-sm-center">
 			<div class="col-md-12 col-lg-6" >
-				<form name="loginForm" onsubmit="return validacion();" action="/chats" class="formulario" method="get">
+				<form name="loginForm" action="/dologin" class="formulario" method="post">
 					<h1>Chat</h1><br>
 					<input type="text" name="usuario" placeholder="Usuario" class="credencial"><br>
 					<input type="password" name="password" placeholder="Contraseña" class="credencial"><br>
+					<a href="/registro">¿No tienes una cuenta? Registrate aquí</a><br>
 					<input type="submit" name="go!" class="enviar btn btn-primary" value="LogIn"> 
 				</form>
 			</div>

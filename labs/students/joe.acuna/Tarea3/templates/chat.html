@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MyCHAT</title>
+	 <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+	<div class="chatbox">
+		<div class="chatlogs">
+
+			<div class="chat friend">
+				<div class="user-photo" ><img src="{{url_for('static',filename='img/userOne.png')}}"></div>
+				<p class="chat-message">Hola que tal?</p>
+			</div>
+			<div class="chat self">
+				<div class="user-photo"><img src="{{url_for('static',filename='img/userTwo.png')}}"></div>
+				<p class="chat-message">Estresado man</p>
+			</div>
+			<div class="chat friend">
+				<div class="user-photo"><img src="{{url_for('static',filename='img/userOne.png')}}"></div>
+				<p class="chat-message">que sad bro :'v</p>
+			</div>
+			<div class="chat self">
+				<div class="user-photo"><img src="{{url_for('static',filename='img/userTwo.png')}}"></div>
+				<p class="chat-message">Lo se</p>
+			</div>
+			<div class="chat friend">
+				<div class="user-photo"><img src="{{url_for('static',filename='img/userOne.png')}}"></div>
+				<p class="chat-message">que sad bro :'v</p>
+			</div>
+			<div class="chat self">
+				<div class="user-photo"><img src="{{url_for('static',filename='img/userTwo.png')}}"></div>
+				<p class="chat-message">Lo se</p>
+			</div>
+			<div class="chat friend">
+				<div class="user-photo"><img src="{{url_for('static',filename='img/userOne.png')}}"></div>
+				<p class="chat-message">que sad bro :'v</p>
+			</div>
+			<div class="chat self">
+				<div class="user-photo"><img src="{{url_for('static',filename='img/userTwo.png')}}"></div>
+				<p class="chat-message">Lo se</p>
+			</div>
+
+		</div>
+
+		<div class="chat-form">
+			<textarea></textarea>
+			<button>Enviar</button>
+		</div>
+
+	</div>
+
+</body>
+</html>
