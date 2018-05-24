@@ -1,190 +1,210 @@
-#para que se actualizen los archivos en el navegador tienes que hacer un cache refresh (control and click reload)
-
-from flask import Flask, session, escape, request, render_template, redirect, Response, url_for
+from flask import Flask, render_template, request, redirect
+from flask_sqlalchemy import SQLAlchemy
 import json
-from database import connector
-from model import entities
 
+#configuracion inicial
 app = Flask(__name__)
-app.secret_key = 'You will never guess'
+#creadion de la db
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/finaledb.db'
+db = SQLAlchemy(app)
 
-#create database
-db = connector.Manager()
-engine = db.createEngine()
+#los usuarios
+class User(db.Model):
+    __tablename__='users'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(50))
+    fullname = db.Column(db.String(50))
+    password = db.Column(db.String(12))
+
+#para los mensajes
+class Message(db.Model):
+    __tablename__ = 'messages'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    sendby = db.Column(db.String(50))
+    receiveby = db.Column(db.String(50))
+    message = db.Column(db.String(50))
+
+db.create_all()
+
+#workspace boi
 
 @app.before_first_request
 def set_default_users():
-    danisession = db.getSession(engine)
-    #chequear que es la primera vez creando database
-    if(danisession.query(entities.User).first() is None):
-        #creando usuarios
-        user1 = entities.User(id=1, name='ed', fullname='Ed Jones', password='hola123')
-        user2 = entities.User(id=2, name='yi', fullname = 'Yi Sato', password = 'friedchicken')
-        user3 = entities.User(id=3, name='pursh', fullname = 'Arturo Cuya', password = 'pursh')
-        user4 = entities.User(id=4, name='hey', fullname = 'heihei', password = 'boats')
-        user5 = entities.User(id=5, name='furn', fullname = 'Furnace Fernandez', password = 'furnboi')
-        user6 = entities.User(id=6, name='andreav', fullname = 'Andrea Velasquez', password = 'cuaccuac')
+    #si la db esta vacia
+    if (User.query.all()==[]):
+        #db.session.add es para crear entradas (filas) en la base de datos
+        db.session.add(User(id=1, name="furn", fullname="furnace furnandez", password="furnboi"))
+        db.session.add(User(id=2, name="pursh", fullname="Apursh furnandez", password="pursh1"))
+        db.session.add(User(id=3, name="yiyi", fullname="Alessia furnandez", password="yi"))
 
-        #metiendo usuarios a la db
-        danisession.add(user1)
-        danisession.add(user2)
-        danisession.add(user3)
-        danisession.add(user4)
-        danisession.add(user5)
-        danisession.add(user6)
+        db.session.add(Message(id=1, sendby="furnas", receiveby="meee", message="te quiero"))
+        db.session.add(Message(id=2, sendby="furnaaaaaaas", receiveby="alessia", message="te quieroo"))
+        db.session.add(Message(id=3, sendby="furnace", receiveby="andrea", message="te quierooo"))
 
-        #creando mensajes
-        message1 = entities.Message(id=1, message='Hello, my name is Elder Price', sendby='Price', receiveby='Green')
-        message2 = entities.Message(id=2, message='And I would like to share with you the most amazing book', sendby='Price', receiveby='Green')
+        #cada vez que haga algo en la db tengo que hacer commit
+        db.session.commit()
 
-        #metiendolos a la base de datos
-        danisession.add(message1)
-        danisession.add(message2)
-
-        #hacemos el commit
-        danisession.commit()
-    return redirect('/')
-
-@app.teardown_appcontext
-def shutdown_session(exception=None):
-    danisession = db.getSession(engine)
-    danisession.remove()
-
-#creando diccionario cache
-cache = {}
-
-#main page
+# main page
 @app.route("/")
 def main():
-    danisession = db.getSession(engine)
-    if 'username' in session:
-        usuarioIN = danisession.query(entities.User).filter(entities.User.name == session['username']).first()
-        usuarioIN.isactive = 1
-        return render_template('chat.html')
     return render_template('login.html')
 
-#chat.html y crud.html
+#chat.html y usersCRUD.html
 @app.route('/static/<content>')
 def static_content(content):
     return render_template(content)
 
-#ACA EMPIEZAN LOS METODOS
-
 #login validate
-@app.route('/dologin', methods = ['GET', 'POST'])
+@app.route('/dologin', methods = ['POST'])
 def login():
-    danisession = db.getSession(engine)
-    if 'username' not in session:
-        if request.method == "POST":
-            if danisession.query(entities.User).filter(entities.User.name == request.form['username'], entities.User.password == request.form['password']).first() is not None:
-                session['username'] = request.form['username']
-                usuarioIN = danisession.query(entities.User).filter(entities.User.name == session['username']).first()
-                print("Usuario conectado: ", usuarioIN)
-                usuarioIN.isactive = 1
-                danisession.commit()
-                return redirect('/')
-            else:
-                return ('', 204)
-        return render_template('login.html')
-    return redirect('/')
+    validated = False
+    userList = User.query.all()
+    if request.method == 'POST':
+        data = request.form # a multidict containing post data
+        for x in userList:
+            if str(data['username']) == x.name and str(data['password']) == x.password:
+                validated = True
 
-@app.route('/logout')
-def logout():
-    danisession = db.getSession(engine)
-    usuarioIN = danisession.query(entities.User).filter(entities.User.name == session['username']).first()
-    usuarioIN.isactive = 0
-    session.pop('username', None)
-    danisession.commit()
+        if validated == True:
+            return redirect('/static/chat.html')
+        else:
+            return redirect('/')
 
-    return redirect('/')
+#El buen CRUD <3 de usuarios
 
-#get users cache
-@app.route('/getusers')
-def get_user():
-    danisession = db.getSession(engine)
-    key = 'getUsers'
-    if key not in cache.keys():
-        dbResponse = danisession.query(entities.User)
-        cache[key] = dbResponse
-        print("---------------------From DB")
-    else:
-        print("---------------------From cache")
+@app.route("/users", methods=['GET'])
+def getAllUsers():
+    if request.method == "GET":
 
-    users = cache[key]
-    response = ""
-    for x in users:
-        response += x.name + " " + x.fullname + "      "
-    return response
+        userList = User.query.all()
 
-#empezamos con los metodos de mensajes
+        users = "["
+        for x in userList:
+            users+='{"id":'+str(x.id)+',"name":"'+str(x.name)+'","fullname":"'+str(x.fullname)+'","password":"'+str(x.password)+'"},'
+        users = users[0:len(users)-1] #para borrar la ultima coma
+        users += ']'
 
-#devuelve los mensajes de la db que tmb estan en el cache
-@app.route('/messages', methods = ['GET'])
-def returnMessages():
-    key = 'return messages'
-    if key not in cache.keys():
-        danisession = db.getSession(engine)
-        dbResponse = danisession.query(entities.Message)
-        cache[key] = dbResponse
-        print("From DB")
-    else:
-        print("From Cache")
+        return users
 
-    messages = cache[key]
-    response = []
-    for message in messages:
-        response.append(message)
-    return Response(json.dumps(response, cls=connector.AlchemyEncoder), mimetype='application/json')
+@app.route("/users/<id>", methods = ["GET"])
+def getOneUser(id):
+    if request.method == "GET":
+        x = User.query.get(id) #devuelve el elemento que tiene ese id
+        user_json = '[{"id":'+str(x.id)+',"name":"'+str(x.name)+'","fullname":"'+str(x.fullname)+'","password":"'+str(x.password)+'"}]'
+        return user_json
 
-#devuelve solo el mensaje que sale en el id
-@app.route('/messages/<id>', methods = ['GET'])
-def getMessage(id):
-    danisession = db.getSession(engine)
-    messages = danisession.query(entities.Message).filter(entities.Message.id == id) #solo los mensajes de este id
-    for message in messages:
-        js =json.dumps(message, cls=connector.AlchemyEncoder)
-        return Response(js, status=200, mimetype='application/json')
+@app.route("/users", methods = ["POST"])
+def createNewUser():
+    if request.method == "POST":
+        tempUser = json.loads(request.form["values"]) #el json.loads para pasar el request form de string a json
+        newUser = User(id=int(tempUser["id"]),name=tempUser["name"], fullname=tempUser["fullname"], password=tempUser["password"])
 
-    error={"status":404, "message":"Not Found"}
-    return Response(error, status=404, mimetype='application/json')
+        #lo metemos a la db
+        db.session.add(newUser)
+        db.session.commit()
 
-#Crear un nuevo mensaje
-@app.route('/messages', methods = ['POST'])
-def createMessages():
-    danisession = db.getSession(engine)
-    c =  json.loads(request.form['values'])
-    print ("c: ", c)
-    message = entities.Message(id=c['id'],
-                                message=c['message'],
-                                sendby=c['sendby'],
-                                receiveby=c['receiveby'])
-    danisession.add(message)
-    danisession.commit()
-    return "Se ha creado el mensaje"
+        return "Se ha añadido el usuario"
 
-#borra el mensaje que indica el id
-@app.route('/messages', methods = ['DELETE'])
-def removeMessage():
-    id = request.form['key']
-    danisession = db.getSession(engine)
-    messages = danisession.query(entities.Message).filter(entities.Message.id == id)
-    for message in messages:
-        danisession.delete(message)
-    danisession.commit()
-    return "DELETED"
+@app.route("/users", methods = ["PUT"])
+def updateUser():
+    if request.method == "PUT":
+        id = int(request.form["key"])
+        x = User.query.get(id)  # devuelve el elemento que tiene ese id
+        lacolumnadic = json.loads(request.form["values"]) # {"columna":"nuevo valor}
+        lacolumna = list(lacolumnadic.keys())[0] # "columna"
 
-#actualiza el mensaje indicado por el id, primero lo deletea y despues se crea uno nuevo
-@app.route('/messages', methods = ['PUT'])
+        #si el nombre de la columna es igual a tal atributo
+        if lacolumna == "name":
+            x.name = lacolumnadic[lacolumna]
+        elif lacolumna == "fullname":
+            x.fullname = lacolumnadic[lacolumna]
+        elif lacolumna == "password":
+            x.password = lacolumnadic[lacolumna]
+
+        #actualizamos bd
+        db.session.commit()
+
+        return "Se ha hecho el put"
+
+@app.route("/users", methods = ["DELETE"])
+def deleteUser():
+    if request.method == "DELETE":
+        id = int(request.form["key"])
+        x = User.query.get(id)  # devuelve el elemento que tiene ese id
+
+        #lo sacamos de la db
+        db.session.delete(x)
+        db.session.commit()
+
+        return "Se ha borrado el usuario"
+
+#El buen CRUD <3 de mensajes
+
+@app.route("/messages", methods=['GET'])
+def getAllMessages():
+    if request.method == "GET":
+
+        messageList = Message.query.all()
+
+        messages = "["
+        for x in messageList:
+            messages+='{"id":'+str(x.id)+',"sendby":"'+str(x.sendby)+'","receiveby":"'+str(x.receiveby)+'","message":"'+str(x.message)+'"},'
+        messages = messages[0:len(messages)-1] #para borrar la ultima coma
+        messages += ']'
+
+        return messages
+
+@app.route("/messages/<id>", methods = ["GET"])
+def getOneMessage(id):
+    if request.method == "GET":
+        x = Message.query.get(id) #devuelve el elemento que tiene ese id
+        message_json = '[{"id":'+str(x.id)+',"sendby":"'+str(x.sendby)+'","receiveby":"'+str(x.receiveby)+'","message":"'+str(x.message)+'"}]'
+        return message_json
+
+@app.route("/messages", methods = ["POST"])
+def createNewMessage():
+    if request.method == "POST":
+        tempMessage = json.loads(request.form["values"]) #el json.loads para pasar el request form de string a json
+        newMessage = Message(id=int(tempMessage["id"]),sendby=tempMessage["sendby"], receiveby=tempMessage["receiveby"], message=tempMessage["message"])
+
+        #lo metemos a la db
+        db.session.add(newMessage)
+        db.session.commit()
+
+        return "Se ha añadido el mensaje"
+
+@app.route("/messages", methods = ["PUT"])
 def updateMessage():
-    danisession = db.getSession(engine)
-    id = request.form['key']
-    message = danisession.query(entities.Message).filter(entities.Message.id == id).first()
-    c =  json.loads(request.form['values'])
-    for key in c.keys():
-        setattr(message, key, c[key])
-    danisession.add(message)
-    danisession.commit()
-    return 'Se ha actualizado el mensaje'
+    if request.method == "PUT":
+        id = int(request.form["key"])
+        x = Message.query.get(id)  # devuelve el elemento que tiene ese id
+        lacolumnadic = json.loads(request.form["values"]) # {"columna":"nuevo valor}
+        lacolumna = list(lacolumnadic.keys())[0] # "columna"
+
+        #si el nombre de la columna es igual a tal atributo
+        if lacolumna == "sendby":
+            x.sendby = lacolumnadic[lacolumna]
+        elif lacolumna == "receiveby":
+            x.receiveby = lacolumnadic[lacolumna]
+        elif lacolumna == "message":
+            x.message = lacolumnadic[lacolumna]
+
+        #actualizamos bd
+        db.session.commit()
+
+        return "Se ha hecho el put de mensajes"
+
+@app.route("/messages", methods = ["DELETE"])
+def deleteMessage():
+    if request.method == "DELETE":
+        id = int(request.form["key"])
+        x = Message.query.get(id)  # devuelve el elemento que tiene ese id
+
+        #lo sacamos de la db
+        db.session.delete(x)
+        db.session.commit()
+
+        return "Se ha borrado el mensaje"
 
 if __name__ == '__main__':
     app.run()
