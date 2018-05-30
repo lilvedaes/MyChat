@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Chat</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+
+
+<body>
+
+    <form name="form" method='post' action='/dologin/'>
+    <div class="contenedor-login">
+        <h1>Log in </h1>
+
+        <br>
+            Username: <input id="username" name="user"><br>
+            Password: <input id="password" name="passw"><br>
+        <br>
+            <button type="submit" onclick="validatePassword()">Submit</button>
+        <!-- Crea la variable que hace que getElementById lea las otra variables-->
+        <p id="demo"></p>
+    </div>
+    </form>
+
+    <!-- Importar file de javascript-->
+    <script type="text/javascript" src="static/javascript/ValidatePassword.js"></script>
+
+</body>
+
+
+</html>
