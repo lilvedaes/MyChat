@@ -25,11 +25,10 @@ app.secret_key = "You Will Never Guess"
 
 @app.route('/')
 def login():
-    # return "hola"
     return render_template('Login.html')
 
 
-@app.route('/dologin', methods=['POST', 'GET'])
+@app.route('/dologin', methods=['POST'])
 def dologin():
     global dicusers
     if request.method == 'POST':
@@ -41,24 +40,28 @@ def dologin():
 
         # Si viene de android
         if request.headers.get("User-Agent") == "android":
+            print("LLEGO ACAAA ANDROID")
             if user in dicusers and passw == dicusers[user][0]:
                 print("-----------SE RETORNEO B")
-                return 'yei'
+                return 'bien'
             else:
                 print("-----------SE RETORNEO M")
-                return 'bad'
+                return "mal"
 
         # Si viene de otra cosa
         else:
+            print("LLEGO ACAAA NORMAL")
             if user in dicusers and passw == dicusers[user][0]:
                 dicusers = {}
                 return render_template('Chat.html')
             else:
                 time.sleep(1)
                 return redirect("/")
+    else:
+        return "bad request"
 
 
-#@app.route('/getusers', methods=['POST', 'GET'])
+@app.route('/getusers', methods=['POST', 'GET'])
 def getusers():
     global dicusers
     if dicusers == {}:  # if empty
