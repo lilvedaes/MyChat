@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: tahoma, sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background: cadetblue;
+}
+
+.contenedor-login{
+    background: cadetblue;
+    font-family: tahoma, sans-serif;
+    margin: 10% 40% 0;
+
+}
+
+
+.panel{
+    width: 25%;
+    height: 700px;
+    background: white;
+    padding: 25px;
+    margin-left: 25px;
+    margin-top: 20px;
+    display: inline-block;
+    box-shadow: 0 3px #ccc;
+    float: left;
+}
+
+.amigo-datos {
+    padding: 5px;
+    margin-bottom: 20px;
+    border-bottom: solid 1px #BDBDBD;
+}
+
+.mensaje, .numero-mensaje {
+    display: inline-block;
+}
+
+.numero-mensaje {
+    float: right;
+    font-weight: bolder;
+}
+
+.chatbox{
+    width: 70%;
+    min-width: 390px;
+    height: 700px;
+    background: white;
+    padding: 25px;
+    margin-right: 20px;
+    margin-top: 20px;
+    box-shadow: 0 3px #ccc;
+    float: right;
+
+}
+
+.chatlogs{
+    padding: 10px;
+    width: 100%;
+    height: 450px;
+}
+
+.chat{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.chat .user-photo{
+    width: 60px;
+    height: 60px;
+    background: #cccccc;
+    border-radius: 50%;
+}
+
+.chat .chat-message{
+    width: 80%;
+    padding: 15px;
+    margin: 5px 10px 0;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+}
+
+.other .chat-message{
+    background: lightgreen;
+}
+
+.my .chat-message{
+    background: deepskyblue;
+    order: -1;
+}
+
+.chat-box{
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    margin-left: 100px;
+}
+
+.chat-box textarea{
+    background: #fbfbfb;
+    width: 75%;
+    height: 50px;
+    border: 2px solid #eee;
+    border-radius: 3px;
+    resize: none;
+    padding: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.chat-box textarea:focus{
+    background: #ffffff;
+}
+
+.chat-box button{
+    background: cadetblue;
+    padding: 5px 15px;
+    font-size: 30px;
+    color: white;
+    border: none;
+    margin: 0 10 px;
+    border-radius: 3px;
+    box-shadow: 0 3px 0 darkslategrey;
+    cursor: pointer;
+}
